@@ -12,20 +12,20 @@ def snowballsampling(g, seed, maxsize=50):
     """ this function returns a set of nodes equal to maxsize from g that are collected from around seed node via
         snownball sampling """
     if g.number_of_nodes() < maxsize:
-        return [None]
+        return set()
     q = que.Queue()
     q.put(seed)
-    subgraph = [seed]
+    subgraph = set(seed)
     while not q.empty():
         for node in g.neighbors(q.get()):
-            if len(set(subgraph)) < maxsize:
+            if len(subgraph) < maxsize:
                 q.put(node)
-                subgraph.append(node)
+                subgraph.add(node)
             else :
-                return list(set(subgraph))
+                return subgraph
             pass
         pass
-    return list(set(subgraph))
+    return subgraph
 
 def surroundings(g, subgraph):
     """ this function returns the surrounding subgraph of input subgraph argument """ 
