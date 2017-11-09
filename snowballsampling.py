@@ -6,7 +6,7 @@ from numpy.random import randint
 
 
 def randomseed(g):
-    """ this function recturns a single node from g, it's chosen with uniform probability """
+    """this function recturns a single node from g, it's chosen with uniform probability"""
     ux = randint(0,g.number_of_nodes(),1)
     return ux[0]
 
@@ -28,7 +28,7 @@ def snowballsampling(g, seed, maxsize=50):
     return subgraph
 
 def surroundings(g, subgraph):
-    """ this function returns the surrounding subgraph of input subgraph argument """ 
+    """this function returns the surrounding subgraph of input subgraph argument""" 
     surdngs = copy.copy(subgraph)
     for node in subgraph:
         for i in g.neighbors(node):
