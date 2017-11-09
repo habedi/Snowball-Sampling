@@ -1,7 +1,9 @@
 import networkx as nx
 import Queue as que
 import copy
+
 from numpy.random import randint
+
 
 def randomseed(g):
     """ this function recturns a single node from g, it's chosen with uniform probability """
@@ -9,8 +11,8 @@ def randomseed(g):
     return ux[0]
 
 def snowballsampling(g, seed, maxsize=50):
-    """ this function returns a set of nodes equal to maxsize from g that are collected from around seed node via
-        snownball sampling """
+    """this function returns a set of nodes equal to maxsize from g that are 
+    collected from around seed node via snownball sampling"""
     if g.number_of_nodes() < maxsize:
         return set()
     q = que.Queue()
@@ -23,8 +25,6 @@ def snowballsampling(g, seed, maxsize=50):
                 subgraph.add(node)
             else :
                 return subgraph
-            pass
-        pass
     return subgraph
 
 def surroundings(g, subgraph):
@@ -34,10 +34,4 @@ def surroundings(g, subgraph):
         for i in g.neighbors(node):
             if i not in surdngs:
                 surdngs.append(i)
-                pass
-            pass
-        pass
     return surdngs
-
-
-    
